@@ -14,9 +14,9 @@ class HHScraper:
 	dest = None
 	scraper = None
 
-	def __init__(self, _url, _dest):
+	def __init__(self, _dest):
 		self._setUpLogging()
-		self.url = _url
+		self.url = "https://www.dancarlin.com/hardcore-history-series/"
 		self.dest = _dest
 
 		# Initialize Scraper
@@ -196,10 +196,8 @@ def waitForInternetConnection(seconds, interval):
 
 ## Destination for download
 dest = sys.argv[1]
-## URL for 2 week archive, get from wdcb.org/archive network traffic
-url = sys.argv[2]
 
 waitForInternetConnection(60, 5)
 
-hh_scraper = HHScraper(url, dest)
+hh_scraper = HHScraper(dest)
 hh_scraper.scrapeNewEpisodes()
